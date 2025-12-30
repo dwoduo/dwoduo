@@ -11,6 +11,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <script>
+      // GitHub Pages SPA 路由修复
+      (function() {
+        const l = window.location;
+        if (l.search[1] === '/') {
+          const decoded = l.search.slice(1).split('&').map(s => s.replace(/~and~/g, '&')).join('?');
+          window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })();
+    </script>
   </head>
 
   <body>
