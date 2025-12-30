@@ -49,7 +49,7 @@ export default function Home() {
       <section className="py-32 container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           {/* 音乐 */}
-          <Link href="/music">
+          <a href="/music" className="block">
             <div className="japanese-card p-8 md:p-12 cursor-pointer group">
               <div className="flex items-start gap-6 mb-6">
                 <div className="p-4 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
@@ -63,10 +63,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
 
           {/* 图像 */}
-          <Link href="/gallery">
+          <a href="/gallery" className="block">
             <div className="japanese-card p-8 md:p-12 cursor-pointer group md:mt-16">
               <div className="flex items-start gap-6 mb-6">
                 <div className="p-4 rounded-full bg-accent/30 text-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500">
@@ -80,10 +80,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
 
           {/* 游戏 */}
-          <Link href="/games">
+          <a href="/games" className="block">
             <div className="japanese-card p-8 md:p-12 cursor-pointer group">
               <div className="flex items-start gap-6 mb-6">
                 <div className="p-4 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
@@ -97,10 +97,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
 
           {/* 学习 */}
-          <Link href="/learning">
+          <a href="/learning" className="block">
             <div className="japanese-card p-8 md:p-12 cursor-pointer group md:mt-16">
               <div className="flex items-start gap-6 mb-6">
                 <div className="p-4 rounded-full bg-accent/30 text-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500">
@@ -114,10 +114,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
 
           {/* 日志 */}
-          <Link href="/journal">
+          <a href="/journal" className="block">
             <div className="japanese-card p-8 md:p-12 cursor-pointer group">
               <div className="flex items-start gap-6 mb-6">
                 <div className="p-4 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
@@ -131,10 +131,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
 
           {/* 项目 */}
-          <Link href="/projects">
+          <a href="/projects" className="block">
             <div className="japanese-card p-8 md:p-12 cursor-pointer group md:mt-16">
               <div className="flex items-start gap-6 mb-6">
                 <div className="p-4 rounded-full bg-accent/30 text-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500">
@@ -148,7 +148,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
       </section>
 
