@@ -4,35 +4,48 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import Navigation from "./components/Navigation";
+import MobileNav from "./components/MobileNav";
 import Home from "./pages/Home";
-
+import Music from "./pages/Music";
+import Gallery from "./pages/Gallery";
+import Games from "./pages/Games";
+import Learning from "./pages/Learning";
+import Journal from "./pages/Journal";
+import Projects from "./pages/Projects";
+import About from "./pages/About";
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
+      <Route path="/" component={Home} />
+      <Route path="/music" component={Music} />
+      <Route path="/gallery" component={Gallery} />
+      <Route path="/games" component={Games} />
+      <Route path="/learning" component={Learning} />
+      <Route path="/journal" component={Journal} />
+      <Route path="/projects" component={Projects} />
+      <Route path="/about" component={About} />
+      <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <Navigation />
+          <MobileNav />
+          {/* 主内容区域 - 为侧边栏留出空间 */}
+          <div className="lg:ml-64 min-h-screen">
+            <div className="pt-16 lg:pt-0">
+              <Router />
+            </div>
+          </div>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
