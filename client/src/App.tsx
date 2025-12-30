@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
+import { useEffect } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navigation from "./components/Navigation";
@@ -14,6 +15,17 @@ import Learning from "./pages/Learning";
 import Journal from "./pages/Journal";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
+
+// GitHub Pages SPA 路由修复
+function useGitHubPagesFix() {
+  useEffect(() => {
+    const l = window.location;
+    if (l.search[1] === '/') {
+      const decoded = l.search.slice(1).split('&').map(s => s.replace(/~and~/g, '&')).join('?');
+      window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash);
+    }
+  }, []);
+}
 
 function Router() {
   return (
@@ -33,6 +45,8 @@ function Router() {
 }
 
 function App() {
+  useGitHubPagesFix();
+  
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
